@@ -1,6 +1,5 @@
 // from data.js
 var tableData = data;
-
 var tbody = d3.select("tbody");
 
 // Function to build table
@@ -9,11 +8,11 @@ function buildTable(data){
     tbody.html("");
     data.forEach(dataRow => {
         console.table(dataRow);
-        let row = tbody.append("tr");
+        var row = tbody.append("tr");
        // Append table data 
        console.table(Object.values(dataRow));
        Object.values(dataRow).forEach((val) => {
-           let cell = row.append("td");
+           var cell = row.append("td");
            cell.text(val);
        });
     });
@@ -23,8 +22,9 @@ function buildTable(data){
 function handleClick(){
     d3.event.preventDefault() // Event to prevent the form from refreshing the page
     
-    let date = d3.select("#datetime").property("value");
-    let filterData = tableData;
+    // store the type date value on date variable
+    var date = d3.select("#datetime").property("value");
+    var filterData = tableData;
 
     // If date is entered, filter the data using that date, so only rows matching the filter value are displayed
     if (date){
